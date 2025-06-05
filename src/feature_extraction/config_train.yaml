@@ -1,0 +1,34 @@
+data_config:
+  cand_pool_path: cand_pool/global/mbeir_union_train_cand_pool.jsonl
+  enable_query_instruct: true
+  hard_neg_num: 0
+  image_size: 224, 224
+  in_batch_neg_num: 0
+  query_data_path: query/union_train/mbeir_union_up_train.jsonl
+  query_instruct_path: instructions/query_instructions.tsv
+  returns: null
+  shuffle_cand: false
+dataloader_config:
+  num_workers: 16
+  train_batch_size: 2
+  valid_batch_size: 2048
+dist_config:
+  dist_url: env://
+experiment:
+  description: ${model.name} ${model.size} ${experiment.instruct_status} ${experiment.exp_name}
+  exp_name: InBatch
+  instruct_status: Instruct
+  path_suffix: CLIP
+model:
+  ckpt_config:
+    ckpt_dir: checkpoint/CLIP_SF
+    ckpt_name: clip_sf_large.pth
+    using_pretrained: false
+  clip_vision_model_name: ViT-L/14
+  emb_save_path: extracted_embed/CLIP_SF
+  gather_embeddings: true
+  name: CLIPScoreFusion
+  pretrained_clip_model_dir: checkpoint/CLIP_SF/
+  short_name: CLIP_SF
+  size: Large
+seed: 2023

@@ -1,0 +1,219 @@
+codebook_config:
+  codebook_level: 8
+  codebook_vocab: 4096
+  quantizer_path: checkpoint/rq_clip_large.pth
+data_config:
+  cand_pool_dir_name: cand_pool/local
+  enable_query_instruct: true
+  extracted_dir: extracted_embed/CLIP_SF/cand
+  image_size: 224, 224
+  in_batch_neg_num: 0
+  is_extracted: true
+  query_instruct_path: instructions/query_instructions.tsv
+  shuffle_cand: true
+  test_dir_name: query/test
+  train_dir_name: query/train
+  union_cand_pool_dir_name: cand_pool/global
+  val_dir_name: query/val
+dataloader_config:
+  batch_size: 256
+  num_workers: 4
+dist_config:
+  dist_url: env://
+experiment:
+  description: ${model.name} ${model.size} ${experiment.instruct_status} ${experiment.exp_name}
+  exp_name: InBatch
+  instruct_status: Instruct
+  path_suffix: ${model.short_name}/${model.size}/${experiment.instruct_status}/${experiment.exp_name}/
+model:
+  ckpt_config:
+    ckpt_dir: checkpoint/${experiment.path_suffix}
+    ckpt_name: GENIUS_t5small.pth
+  clip_vision_model_name: ViT-L/14
+  gather_embeddings: true
+  name: T5GenerativeRetriever
+  pretrained_clip_model_dir: checkpoint/CLIP/
+  pretrained_config:
+    pretrained_dir: checkpoint/CLIP_SF
+    pretrained_name: clip_sf_large.pth
+    using_pretrained: true
+  short_name: GENIUS_t5small
+  size: Large
+  trie_type: trie_cpp
+retrieval_config:
+  cand_pools_config:
+    cand_pools_name_to_gen_code:
+    - visualnews_task0
+    - mscoco_task0
+    - fashion200k_task0
+    - webqa_task1
+    - edis_task2
+    - webqa_task2
+    - visualnews_task3
+    - mscoco_task3
+    - fashion200k_task3
+    - nights_task4
+    - oven_task6
+    - infoseek_task6
+    - fashioniq_task7
+    - cirr_task7
+    - oven_task8
+    - infoseek_task8
+    enable_gen_code: true
+    gen_code_union_pool: true
+    is_extracted: true
+  gen_code_dir_name: gen_code
+  index_dir_name: index
+  num_beams: 50
+  qrel_dir_name: qrels
+  rerank: true
+  results_dir_name: retrieval_results
+  test_datasets_config:
+    correspond_cand_pools_name:
+    - visualnews_task0
+    - mscoco_task0_test
+    - fashion200k_task0
+    - webqa_task1
+    - edis_task2
+    - webqa_task2
+    - visualnews_task3
+    - mscoco_task3_test
+    - fashion200k_task3
+    - nights_task4
+    - oven_task6
+    - infoseek_task6
+    - fashioniq_task7
+    - cirr_task7
+    - oven_task8
+    - infoseek_task8
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    - UNION
+    correspond_metrics_name:
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@10, Recall@20, Recall@50
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@10, Recall@20, Recall@50
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@10, Recall@20, Recall@50
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@10, Recall@20, Recall@50
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@10, Recall@20, Recall@50
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@10, Recall@20, Recall@50
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    - Recall@1, Recall@5, Recall@10
+    correspond_qrels_name:
+    - visualnews_task0
+    - mscoco_task0
+    - fashion200k_task0
+    - webqa_task1
+    - edis_task2
+    - webqa_task2
+    - visualnews_task3
+    - mscoco_task3
+    - fashion200k_task3
+    - nights_task4
+    - oven_task6
+    - infoseek_task6
+    - fashioniq_task7
+    - cirr_task7
+    - oven_task8
+    - infoseek_task8
+    - visualnews_task0
+    - mscoco_task0
+    - fashion200k_task0
+    - webqa_task1
+    - edis_task2
+    - webqa_task2
+    - visualnews_task3
+    - mscoco_task3
+    - fashion200k_task3
+    - nights_task4
+    - oven_task6
+    - infoseek_task6
+    - fashioniq_task7
+    - cirr_task7
+    - oven_task8
+    - infoseek_task8
+    datasets_name:
+    - visualnews_task0
+    - mscoco_task0
+    - fashion200k_task0
+    - webqa_task1
+    - edis_task2
+    - webqa_task2
+    - visualnews_task3
+    - mscoco_task3
+    - fashion200k_task3
+    - nights_task4
+    - oven_task6
+    - infoseek_task6
+    - fashioniq_task7
+    - cirr_task7
+    - oven_task8
+    - infoseek_task8
+    - visualnews_task0
+    - mscoco_task0
+    - fashion200k_task0
+    - webqa_task1
+    - edis_task2
+    - webqa_task2
+    - visualnews_task3
+    - mscoco_task3
+    - fashion200k_task3
+    - nights_task4
+    - oven_task6
+    - infoseek_task6
+    - fashioniq_task7
+    - cirr_task7
+    - oven_task8
+    - infoseek_task8
+    enable_gen_code: true
+    enable_retrieve: true
+  train_datasets_config:
+    correspond_cand_pools_name: null
+    datasets_name: null
+    enable_gen_code: false
+    enable_retrieve: false
+  use_fp16: true
+  val_datasets_config:
+    correspond_cand_pools_name: null
+    correspond_qrels_name: null
+    datasets_name: null
+    enable_gen_code: false
+    enable_retrieve: false
+  write_to_tsv: true
+seed: 2023

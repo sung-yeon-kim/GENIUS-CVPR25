@@ -1,0 +1,67 @@
+codebook_config:
+  codebook_level: 8
+  codebook_vocab: 4096
+  pool_path: extracted_embed/CLIP_SF/train/pool_SFpretrained_IT_dict.pt
+  quantizer_path: checkpoint/rq_clip_large.pth
+  query_path: extracted_embed/CLIP_SF/train/query_SFpretrained_instruction_IT_dict.pt
+data_config:
+  enable_query_instruct: true
+  hard_neg_num: 0
+  image_size: 224, 224
+  in_batch_neg_num: 0
+  query_instruct_path: instructions/query_instructions.tsv
+  returns: null
+  shuffle_cand: true
+  train_cand_pool_path: cand_pool/global/mbeir_union_train_cand_pool.jsonl
+  train_query_data_path: query/union_train/mbeir_union_up_train.jsonl
+  val_cand_pool_path: cand_pool/global/mbeir_union_val_cand_pool.jsonl
+  val_query_data_path: query/union_val/mbeir_union_val.jsonl
+dataloader_config:
+  num_workers: 8
+  train_batch_size: 256
+  valid_batch_size: 128
+dist_config:
+  dist_url: env://
+evaluator:
+  enable_eval: true
+  eval_freq: 5
+  eval_start: 40
+  print_freq: 10
+experiment:
+  description: ${model.name} ${model.size} ${experiment.instruct_status} ${experiment.exp_name}
+  exp_name: InBatch
+  instruct_status: Instruct
+  path_suffix: ${model.short_name}/${model.size}/${experiment.instruct_status}/${experiment.exp_name}/
+hyperparameter_config:
+  alpha: 2
+logger_config:
+  logger_out_dir: logger/${experiment.path_suffix}
+  logger_out_file_name: train.log
+model:
+  ckpt_config:
+    ckpt_dir: checkpoint/${experiment.path_suffix}
+    ckpt_name: ''
+    resume_training: false
+  clip_vision_model_name: ViT-L/14
+  gather_embeddings: true
+  name: GENIUS_t5small
+  pretrained_clip_model_dir: checkpoint/CLIP/
+  pretrained_config:
+    pretrained_dir: checkpoint/CLIP_SF
+    pretrained_name: clip_sf_large.pth
+    using_pretrained: true
+  short_name: GENIUS_t5small
+  size: Large
+seed: 2023
+trainer_config:
+  eval_steps: 500
+  gradient_accumulation_steps: 1
+  learning_rate: 1e-4
+  num_train_epochs: 31
+  print_freq: 51
+  warmup_steps: 0
+wandb_config:
+  enabled: true
+  experiment_name: ${experiment.description}
+  wandb_key: wandb_key
+  wandb_project: GENIR

@@ -1,0 +1,41 @@
+data_config:
+  cand_pool_dir_name: cand_pool/local
+  enable_query_instruct: true
+  image_size: 224, 224
+  in_batch_neg_num: 0
+  query_instruct_path: instructions/query_instructions.tsv
+  shuffle_cand: true
+  test_dir_name: query/test
+  train_dir_name: query/train
+  val_dir_name: query/val
+dataloader_config:
+  batch_size: 2
+  num_workers: 16
+dist_config:
+  dist_url: env://
+embed_config:
+  cand_pools_config:
+    cand_pools_name_to_embed:
+    - mscoco_task3_test
+    embed_union_pool: true
+    enable_embed: true
+  embed_dir_name: embed
+  use_fp16: true
+experiment:
+  description: ${model.name} ${model.size} ${experiment.instruct_status} ${experiment.exp_name}
+  exp_name: InBatch
+  instruct_status: Instruct
+  path_suffix: CLIP
+model:
+  ckpt_config:
+    ckpt_dir: checkpoint/CLIP_SF
+    ckpt_name: clip_sf_large.pth
+    using_pretrained: true
+  clip_vision_model_name: ViT-L/14
+  emb_save_path: extracted_embed/CLIP_SF/cand
+  gather_embeddings: true
+  name: CLIPScoreFusion
+  pretrained_clip_model_dir: checkpoint/CLIP_SF/
+  short_name: CLIP_SF
+  size: Large
+seed: 2023

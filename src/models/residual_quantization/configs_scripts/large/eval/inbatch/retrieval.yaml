@@ -1,0 +1,34 @@
+experiment:
+  description: ${model.name} ${model.size} ${experiment.instruct_status} ${experiment.exp_name}
+  exp_name: InBatch
+  instruct_status: Instruct
+  path_suffix: ${model.short_name}/${model.size}/${experiment.instruct_status}/${experiment.exp_name}/
+model:
+  name: RQTokenizer
+  short_name: rq_clip_large
+  size: Large
+retrieval_config:
+  embed_dir_name: embed
+  index_dir_name: index
+  qrel_dir_name: qrels
+  results_dir_name: retrieval_results
+  test_datasets_config:
+    correspond_cand_pools_name:
+    - "mscoco_task0"
+    correspond_metrics_name:
+    - Recall@1, Recall@5, Recall@10
+    correspond_qrels_name:
+    - "mscoco_task0"
+    datasets_name:
+    - "mscoco_task0"
+    enable_retrieve: true
+  train_datasets_config:
+    correspond_cand_pools_name: null
+    datasets_name: null
+    enable_retrieve: false
+  val_datasets_config:
+    correspond_cand_pools_name: null
+    correspond_qrels_name: null
+    datasets_name: null
+    enable_retrieve: false
+  write_to_tsv: true

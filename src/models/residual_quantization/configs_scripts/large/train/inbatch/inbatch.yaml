@@ -1,0 +1,88 @@
+# Residual Quantization model configuration for in-batch training
+# This configuration is optimized for large-scale training with CLIP ViT-L/14
+
+# Codebook configuration for residual quantization
+codebook_config:
+  codebook_level: 8  # Number of quantization levels
+  codebook_vocab: 4096  # Size of codebook vocabulary
+  pool_path: extracted_embed/CLIP_SF/train/pool_SFpretrained_IT_dict.pt  # Path to pooled embeddings
+  query_path: extracted_embed/CLIP_SF/train/query_SFpretrained_instruction_IT_dict.pt  # Path to query embeddings
+
+# Data loading and preprocessing configuration
+data_config:
+  enable_query_instruct: true  # Enable instruction-based query processing
+  hard_neg_num: 0  # Number of hard negative samples
+  image_size: [224, 224]  # Input image dimensions
+  in_batch_neg_num: 0  # Number of in-batch negative samples
+  query_instruct_path: instructions/query_instructions.tsv  # Path to query instructions
+  shuffle_cand: true  # Enable candidate shuffling
+  train_cand_pool_path: cand_pool/global/mbeir_union_train_cand_pool.jsonl  # Training candidate pool
+  train_query_data_path: query/union_train/mbeir_union_up_train.jsonl  # Training query data
+  val_cand_pool_path: cand_pool/global/mbeir_union_val_cand_pool.jsonl  # Validation candidate pool
+  val_query_data_path: query/union_val/mbeir_union_val.jsonl  # Validation query data
+
+# DataLoader configuration
+dataloader_config:
+  num_workers: 4  # Number of data loading workers
+  train_batch_size: 2000  # Training batch size
+  valid_batch_size: 128  # Validation batch size
+
+# Distributed training configuration
+dist_config:
+  dist_url: env://  # Distributed training URL
+
+# Evaluation configuration
+evaluator:
+  enable_eval: false  # Disable evaluation during training
+  eval_freq: 10  # Evaluation frequency in epochs
+  eval_start: 20  # Start evaluation after this many epochs
+  print_freq: 10  # Print frequency in steps
+  save_freq: 5  # Model saving frequency in epochs
+
+# Experiment configuration
+experiment:
+  description: ${model.name} ${model.size} ${experiment.instruct_status} ${experiment.exp_name}
+  exp_name: InBatch
+  instruct_status: Instruct
+  path_suffix: ${model.short_name}/${model.size}/${experiment.instruct_status}/${experiment.exp_name}/
+
+# Logging configuration
+logger_config:
+  logger_out_dir: logger/${experiment.path_suffix}
+  logger_out_file_name: train.log
+
+# Model configuration
+model:
+  ckpt_config:
+    ckpt_dir: checkpoint/${experiment.path_suffix}
+    ckpt_name: ''  # Empty for new training
+    resume_training: false  # Disable training resumption
+  clip_vision_model_name: ViT-L/14  # CLIP vision model
+  gather_embeddings: true  # Enable embedding gathering
+  name: rq_clip_large
+  pretrained_clip_model_dir: checkpoint/CLIP/  # CLIP model directory
+  pretrained_config:
+    pretrained_dir: checkpoint/CLIP_SF
+    pretrained_name: clip_sf_large.pth
+    using_pretrained: true
+  short_name: rq_clip_large
+  size: Large
+
+# Random seed for reproducibility
+seed: 2023
+
+# Training configuration
+trainer_config:
+  eval_steps: 500  # Evaluation steps
+  gradient_accumulation_steps: 1  # Gradient accumulation steps
+  learning_rate: 1e-4  # Learning rate
+  num_train_epochs: 21  # Number of training epochs
+  print_freq: 51  # Print frequency in steps
+  warmup_steps: 0  # Warmup steps
+
+# Weights & Biases configuration
+wandb_config:
+  enabled: true  # Enable W&B logging
+  experiment_name: ${experiment.description}
+  wandb_key: wandb_key
+  wandb_project: GENIR
