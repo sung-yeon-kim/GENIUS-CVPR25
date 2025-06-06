@@ -5,19 +5,19 @@ This repo contains the codebase for the CVPR 2025 paper "[GENIUS: A Generative F
 
 <div align="center" style="line-height: 1;">
   <a href="https://arxiv.org/pdf/2503.19868" target="blank" style="margin: 2px;">
-    <img alt="arXiv" src="https://img.shields.io/badge/📄%20arXiv-2503.19868-b31b1b?color=b31b1b&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="arXiv" src="https://img.shields.io/badge/📄arXiv-2503.19868-b31b1b?color=b31b1b&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
   </a>
   <a href="https://sung-yeon-kim.github.io/project_pages/GENIUS/index.html" target="blank" style="margin: 2px;">
-    <img alt="Project Page" src="https://img.shields.io/badge/🌐%20Project%20Page-GENIUS-ff6b6b?color=ff6b6b&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="Project Page" src="https://img.shields.io/badge/🌐ProjectPage-GENIUS-ff6b6b?color=ff6b6b&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
   </a>
   <a href="https://github.com/sung-yeon-kim/GENIUS" target="blank" style="margin: 2px;">
-    <img alt="GitHub" src="https://img.shields.io/badge/💻%20GitHub-GENIUS-2ea44f?color=2ea44f&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="GitHub" src="https://img.shields.io/badge/💻GitHub-GENIUS-2ea44f?color=2ea44f&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
   </a> <br>
   <a href="https://huggingface.co/Sungyeon/GENIUS" target="blank" style="margin: 2px;">
-    <img alt="HuggingFace" src="https://img.shields.io/badge/🤗%20Checkpoint-GENIUS-ffd700?color=ffd700&logoColor=black" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="HuggingFace" src="https://img.shields.io/badge/🤗Checkpoint-GENIUS-ffd700?color=ffd700&logoColor=black" style="display: inline-block; vertical-align: middle;"/>
   </a>
   <a href="LICENSE" target="blank" style="margin: 2px;">
-    <img alt="License" src="https://img.shields.io/badge/📜%20License-MIT-4b0082?color=4b0082&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
+    <img alt="License" src="https://img.shields.io/badge/📜License-MIT-4b0082?color=4b0082&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
   </a>
 </div>
 
