@@ -12,7 +12,7 @@ This repo contains the codebase for the CVPR 2025 paper "[GENIUS: A Generative F
   </a>
   <a href="https://github.com/sung-yeon-kim/GENIUS" target="_blank" style="margin: 2px;">
     <img alt="GitHub" src="https://img.shields.io/badge/💻%20GitHub-GENIUS-2ea44f?color=2ea44f&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
-  </a> <br> <br>
+  </a> <br>
   <a href="https://huggingface.co/Sungyeon/GENIUS" target="_blank" style="margin: 2px;">
     <img alt="HuggingFace" src="https://img.shields.io/badge/🤗%20Checkpoint-GENIUS-ffd700?color=ffd700&logoColor=black" style="display: inline-block; vertical-align: middle;"/>
   </a>
