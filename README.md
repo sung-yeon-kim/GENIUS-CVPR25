@@ -150,7 +150,7 @@ git clone https://huggingface.co/Sungyeon/GENIUS
 - **Residual Quantization Model** (Stage 1): [`rq_clip_large.pth`](https://huggingface.co/Sungyeon/GENIUS/blob/main/checkpoint/rq_clip_large.pth)
 - **Generator Model** (Stage 2): [`GENIUS_t5small.pth`](https://huggingface.co/Sungyeon/GENIUS/blob/main/checkpoint/GENIUS_t5small.pth)
 
-> Note: All three models are required for full functionality. The CLIP-SF model is used for feature extraction, the Residual Quantization model for ID encoding, and the Generator model for retrieval.
+> Note: All three models are required for full functionality. 
 
 ## 📈 Performance
 
@@ -191,7 +191,7 @@ When the candidate pool grows, embedding‐based retrieval (e.g., CLIP + nearest
 If you find this work useful, please cite:
 
 ```bibtex
-@article{kim2024genius,
+@inproceedings{kim2024genius,
   title={GENIUS: A Generative Framework for Universal Multimodal Search},
   author={Kim, Sungyeon and Zhu, Xinliang and Lin, Xiaofan and Bastan, Muhammet and Gray, Douglas and Kwak, Suha},
   journal={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
