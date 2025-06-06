@@ -1,3 +1,27 @@
+---
+license: mit
+tags:
+  - multimodal
+  - retrieval
+  - universal
+  - generative
+  - cvpr2025
+model_name: GENIUS
+datasets:
+  - MSCOCO
+  - Flickr30k
+  - VisualNews
+  - Fashion200K
+  - WebQA
+  - EDIS
+  - NIGHTS
+  - OVEN
+  - InfoSeek
+  - FashionIQ
+  - CIRR
+library_name: transformers
+---
+
 # GENIUS
 
 This repo contains the codebase for the CVPR 2025 paper "[GENIUS: A Generative Framework for Universal Multimodal Search](https://arxiv.org/pdf/2503.19868)"
