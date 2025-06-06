@@ -27,7 +27,7 @@ library_name: transformers
 This repo contains the codebase for the CVPR 2025 paper "[GENIUS: A Generative Framework for Universal Multimodal Search](https://arxiv.org/pdf/2503.19868)"
 
 <div align="center" style="line-height: 1;">
-  <a href="https://arxiv.org/pdf/2503.19868" target="_blank" style="margin: 2px;"><img alt="arXiv" src="https://img.shields.io/badge/📄%20arXiv-2503.19868-b31b1b?color=b31b1b&logoColor=white" style="display: inline-block; vertical-align: middle;"/></a> <a href="https://sung-yeon-kim.github.io/project_pages/GENIUS/index.html" target="_blank" style="margin: 2px;"><img alt="Project Page" src="https://img.shields.io/badge/🌐%20Project%20Page-GENIUS-ff6b6b?color=ff6b6b&logoColor=white" style="display: inline-block; vertical-align: middle;"/></a> <a href="https://github.com/sung-yeon-kim/GENIUS" target="_blank" style="margin: 2px;"><img alt="GitHub" src="https://img.shields.io/badge/💻%20GitHub-GENIUS-2ea44f?color=2ea44f&logoColor=white" style="display: inline-block; vertical-align: middle;"/></a> <a href="https://huggingface.co/Sungyeon/GENIUS" target="_blank" style="margin: 2px;"><br><img alt="HuggingFace" src="https://img.shields.io/badge/🤗%20Checkpoint-GENIUS-ffd700?color=ffd700&logoColor=black" style="display: inline-block; vertical-align: middle;"/></a> <a href="LICENSE" target="_blank" style="margin: 2px;"><img alt="https://github.com/sung-yeon-kim/GENIUS-CVPR25/blob/main/LICENSE" src="https://img.shields.io/badge/📜%20License-MIT-4b0082?color=4b0082&logoColor=white" style="display: inline-block; vertical-align: middle;"/></a>
+  <a href="https://arxiv.org/pdf/2503.19868" target="_blank" style="margin: 2px;"><img alt="arXiv" src="https://img.shields.io/badge/📄%20arXiv-2503.19868-b31b1b?color=b31b1b&logoColor=white" style="display: inline-block; vertical-align: middle;"/></a> <a href="https://sung-yeon-kim.github.io/project_pages/GENIUS/index.html" target="_blank" style="margin: 2px;"><img alt="Project Page" src="https://img.shields.io/badge/🌐%20Project%20Page-GENIUS-ff6b6b?color=ff6b6b&logoColor=white" style="display: inline-block; vertical-align: middle;"/></a> <a href="https://github.com/sung-yeon-kim/GENIUS" target="_blank" style="margin: 2px;"><img alt="GitHub" src="https://img.shields.io/badge/💻%20GitHub-GENIUS-2ea44f?color=2ea44f&logoColor=white" style="display: inline-block; vertical-align: middle;"/></a> <a href="https://huggingface.co/Sungyeon/GENIUS" target="_blank" style="margin: 2px;"><br><img alt="HuggingFace" src="https://img.shields.io/badge/🤗%20Checkpoint-GENIUS-ffd700?color=ffd700&logoColor=black" style="display: inline-block; vertical-align: middle;"/></a> <a href="https://github.com/sung-yeon-kim/GENIUS-CVPR25/blob/main/LICENSE" target="_blank" style="margin: 2px;"><img alt="license" src="https://img.shields.io/badge/📜%20License-MIT-4b0082?color=4b0082&logoColor=white" style="display: inline-block; vertical-align: middle;"/></a>
 </div>
 
 ## Introduction
@@ -235,7 +235,7 @@ If you find this work useful, please cite:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/sung-yeon-kim/GENIUS-CVPR25/blob/main/LICENSE) file for details.
 
 ## Acknowledgments & References
 
