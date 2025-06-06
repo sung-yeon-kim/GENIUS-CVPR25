@@ -13,6 +13,12 @@ This repo contains the codebase for the CVPR 2025 paper "[GENIUS: A Generative F
   <a href="https://github.com/sung-yeon-kim/GENIUS" target="_blank" style="margin: 2px;">
     <img alt="GitHub" src="https://img.shields.io/badge/💻%20GitHub-GENIUS-2ea44f?color=2ea44f&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
   </a>
+  <a href="https://huggingface.co/Sungyeon/GENIUS" target="_blank" style="margin: 2px;">
+    <img alt="HuggingFace" src="https://img.shields.io/badge/🤗%20Checkpoint-GENIUS-ffd700?color=ffd700&logoColor=black" style="display: inline-block; vertical-align: middle;"/>
+  </a>
+  <a href="LICENSE" target="_blank" style="margin: 2px;">
+    <img alt="License" src="https://img.shields.io/badge/📜%20License-MIT-4b0082?color=4b0082&logoColor=white" style="display: inline-block; vertical-align: middle;"/>
+  </a>
 </div>
 
 ## Introduction
@@ -39,7 +45,7 @@ We propose **GENIUS**, a **universal generative retrieval framework** that suppo
 GENIUS consists of three key components that work together in a three-stage training pipeline:
 
 1. **Multimodal Encoder (CLIP-SF)**  
-   Extracts joint image/text features using a shared backbone. We leverage **UniIR's score‐fusion CLIP model** to learn cross‐modal relations without extra pretraining, with pretrained checkpoints available on [Hugging Face](https://huggingface.co/TIGER-Lab/UniIR).
+   Extracts joint image/text features using a shared backbone. We leverage **UniIR's score‐fusion CLIP model** to learn cross‐modal relations without extra pretraining, with pretrained checkpoints available on [Hugging Face](https://huggingface.co/TIGER-Lab/UniIR/blob/main/checkpoint/CLIP_SF/clip_sf_large.pth).
 
 2. **Modality-Decoupled Quantizer**  
    Compresses continuous embeddings into discrete, layered ID codes including modality and semantic information. Through **residual quantization training**, it learns to encode both images and text into layered, discrete IDs:  
@@ -142,12 +148,39 @@ bash configs_scripts/large/eval/inbatch/run_eval.sh
 > For inference, you can choose between three trie implementations: `trie_cpp` (fastest), `trie` (Python), `marisa` (alternative).
 
 
+## Model Checkpoints
+
+We provide GENIUS model checkpoints in the 🤗 [Hugging Face repository](https://huggingface.co/Sungyeon/GENIUS):
+
+### Stage 1: Residual Quantization Model
+- **Model**: [`rq_clip_large.pth`](https://huggingface.co/Sungyeon/GENIUS/blob/main/checkpoint/rq_clip_large.pth)
+- **Description**: Learns to encode multimodal data into discrete IDs through residual quantization
+- **Size**: ~1.2GB
+
+### Stage 2: Generator Model
+- **Model**: [`GENIUS_t5small.pth`](https://huggingface.co/Sungyeon/GENIUS/blob/main/checkpoint/GENIUS_t5small.pth)
+- **Description**: T5-based sequence-to-sequence model that generates target IDs for retrieval
+- **Size**: ~500MB
+
+### Stage 0: CLIP-SF Model
+- **Model**: [`clip_sf_large.pth`](https://huggingface.co/TIGER-Lab/UniIR/blob/main/checkpoint/CLIP_SF/clip_sf_large.pth)
+- **Source**: [TIGER-Lab/UniIR](https://huggingface.co/TIGER-Lab/UniIR)
+- **Description**: Score-fusion CLIP model for multimodal feature extraction
+
+```bash
+# Clone the repository
+git clone https://huggingface.co/Sungyeon/GENIUS
+
+# Download CLIP-SF model
+wget https://huggingface.co/TIGER-Lab/UniIR/resolve/main/checkpoint/CLIP_SF/clip_sf_large.pth -O checkpoint/CLIP_SF/clip_sf_large.pth
+```
+
+> Note: All three models are required for full functionality. The CLIP-SF model is used for feature extraction, the Residual Quantization model for ID encoding, and the Generator model for retrieval.
 
 ## 📈 Performance
 
-GENIUS achieves strong performance across multiple benchmarks:
-
 > The results in parentheses denote scores from our reimplemented checkpoints, as the originals were lost during server migration. While close to the paper, slight variations may occur due to retraining randomness.
+
 
 ### Universal Information Retrieval
 
