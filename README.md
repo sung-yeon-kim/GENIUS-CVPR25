@@ -145,7 +145,7 @@ wget https://huggingface.co/TIGER-Lab/UniIR/resolve/main/checkpoint/CLIP_SF/clip
 # Clone the GENIUS checkpoints (Stage 1 and 2)
 git clone https://huggingface.co/Sungyeon/GENIUS
 ```
-### Each Checkpoints
+### Each Component Checkpoints
 - **CLIP-SF Model** (Stage 0): [`clip_sf_large.pth`](https://huggingface.co/TIGER-Lab/UniIR/blob/main/checkpoint/CLIP_SF/clip_sf_large.pth)
 - **Residual Quantization Model** (Stage 1): [`rq_clip_large.pth`](https://huggingface.co/Sungyeon/GENIUS/blob/main/checkpoint/rq_clip_large.pth)
 - **Generator Model** (Stage 2): [`GENIUS_t5small.pth`](https://huggingface.co/Sungyeon/GENIUS/blob/main/checkpoint/GENIUS_t5small.pth)
