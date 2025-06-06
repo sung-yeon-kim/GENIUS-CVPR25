@@ -204,7 +204,7 @@ If you find this work useful, please cite:
 @article{kim2024genius,
   title={GENIUS: A Generative Framework for Universal Multimodal Search},
   author={Kim, Sungyeon and Zhu, Xinliang and Lin, Xiaofan and Bastan, Muhammet and Gray, Douglas and Kwak, Suha},
-  journal={arXiv preprint arXiv:2503.19868},
+  journal={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
   year={2025}
 }
 ```
