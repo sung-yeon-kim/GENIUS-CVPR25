@@ -149,27 +149,6 @@ GENIUS achieves strong performance across multiple benchmarks:
 
 > The results in parentheses denote scores from our reimplemented checkpoints, as the originals were lost during server migration. While close to the paper, slight variations may occur due to retraining randomness.
 
-<!-- ### Task-specific Information Retrieval
-
-| Task | Dataset | CLIP_SF | BLIP_FF | IRGen | GRACE | GENIUS (checkpoint) | GENIUSᴿ (checkpoint) |
-|:-----|:--------|:-------:|:-------:|:-----:|:-----:|:-------------------:|:-------------------:|
-| **T→I** | VisualNews | 42.6 | 23.4 | — | — | 18.5 (18.6) | 27.4 (27.3) |
-| | COCO | 81.1 | 79.7 | 50.7 | 39.5 | 68.1 (66.0) | 78.0 (71.6) |
-| | Fashion200K | 18.0 | 26.1 | — | — | 13.7 (14.0) | 16.2 (15.8) |
-| **T→T** | WebQA | 84.7 | 80.0 | — | — | 32.5 (32.6) | 44.6 (43.7) |
-| **T→(I,T)** | EDIS | 59.4 | 50.9 | — | — | 37.0 (37.3) | 44.3 (44.3) |
-| | WebQA | 78.7 | 79.8 | — | — | 49.7 (49.5) | 60.6 (59.6) |
-| **I→T** | VisualNews | 43.1 | 22.8 | — | — | 18.7 (18.5) | 28.4 (27.0) |
-| | COCO | 92.3 | 89.9 | — | — | 83.2 (83.5) | 91.1 (90.8) |
-| | Fashion200K | 18.3 | 28.9 | — | — | 12.8 (13.0) | 16.3 (16.6) |
-| **I→I** | NIGHTS | 32.0 | 33.0 | — | — | 8.2 (8.2) | 30.2 (30.0)|
-| | OVEN | 45.5 | 41.0 | — | — | 36.6 (35.8) | 41.9 (38.9)|
-| **(I,T)→T** | InfoSeek | 27.9 | 22.4 | — | — | 11.2 (12.0) | 20.7 (19.8)|
-| **(I,T)→I** | FashionIQ | 24.4 | 29.2 | — | — | 13.2 (13.2) | 19.3 (19.3)|
-| | CIRR | 44.6 | 52.2 | — | — | 20.7 (20.7) | 39.5 (38.8)|
-| **(I,T)→(I,T)** | OVEN | 67.6 | 55.8 | — | — | 36.4 (35.6) | 52.5 () |
-| | InfoSeek | 48.9 | 33.0 | — | — | 14.6 (14.9) | 30.1 | -->
-
 ### Universal Information Retrieval
 
 | Task | Dataset | CLIP_SF | BLIP_FF | GENIUS (checkpoint) | GENIUSᴿ (checkpoint) |
@@ -226,6 +205,7 @@ Our implementation is built upon and modified from these great repositories:
 - [CLIP4CIR](https://github.com/ABaldrati/CLIP4Cir) - Combining module that integrates image and text features
 
 ### Related Papers
+- [UniIR: Training and Benchmarking Universal Multimodal Information Retrievers](https://arxiv.org/pdf/2311.17136)
 - [Recommender Systems with Generative Retrieval](https://arxiv.org/pdf/2305.05065)
 - [GRACE: Generative Cross-Modal Retrieval](https://arxiv.org/pdf/2402.10805)
 - [IRGen: Generative Modeling for Image Retrieval](https://arxiv.org/pdf/2303.10126)
